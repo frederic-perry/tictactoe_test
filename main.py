@@ -1,12 +1,15 @@
 # 23/10
 
+# je nettoie mon terminal avant execution
+
 import os
  
-os.system('cls') #pour Windows
-os.system('clear') #pour linux
+os.system('cls') # cls= clear screen , sur systeme linux c une autre commande : clear
 
 
-# je creer le plateau de jeu
+
+# je definie et je creer le plateau de jeu , separation par 9 x 'i'
+
 
 
 def afficher_plateau(plateau):
