@@ -41,11 +41,11 @@ def verifier_victoire(plateau_de_jeu, joueur):
 
 def partie_tic_tac_toe():
     plateau = [[" " for _ in range(3)] for _ in range(3)]
-    joueurs = ["Lucas", "Fred"]
+    joueurs = ["X", "O"]
     tour = 0
 
     """ 
-    with this def we are setting up players name , its what gonna be on screen
+    with this def we are setting up players move X & O , its what gonna be on screen
     
     """
 
