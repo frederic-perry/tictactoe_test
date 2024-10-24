@@ -4,18 +4,15 @@
 
 import os
  
-os.system('cls') # cls= clear screen , sur systeme linux c une autre commande : clear
+os.system('cls') # cls= clear screen , upon linux operating system, its another command named : clear
 
 """"
-
-l'idee de base etant que a chaque exectution la fenetre terminal soit remise a zero
-pour une meilleur lisibilité
+the point there being to clean up the terminal everytime we are gonna run the game
 
 """
 
 
-# noius definisson et creeons le plateau de jeu , separation par 9 x 'i'
-
+# with the following commands we are creating the game board , dimension are cases of 3x3 so 9 
 
 def afficher_plateau(plateau_de_jeu):
     for ligne in plateau_de_jeu:
@@ -23,18 +20,15 @@ def afficher_plateau(plateau_de_jeu):
         print("-" * 9) 
         
 """"
-je definie le plateau de jeu colonnes representer par |
-et lignes se materialisant par '-' , 9 x "-" , car 3 cases de 3 carachteres par lignes 
+
+here , we gonna define the game board , its made of | and columns and rows
+to do so we are using '-' , 9 x "-" , because its 3 cases x 3 carachters per lines 
 
 
 """
 
 
-
-
-
 def verifier_victoire(plateau_de_jeu, joueur):
-    # Vérifie les lignes, les colonnes et les diagonales
     for ligne in plateau_de_jeu:
         if all(s == joueur for s in ligne):
             return True
@@ -51,7 +45,8 @@ def partie_tic_tac_toe():
     tour = 0
 
     """ 
-    ici nous definisson le nom des joueurs , a savoir nos prenoms
+    with this def we are setting up players name , its what gonna be on screen
+    
     """
 
 
@@ -62,25 +57,25 @@ def partie_tic_tac_toe():
        
         while True:
             try:
-                ligne = int(input(f"Joueur {joueur}, entrez la ligne (0, 1, 2) : "))
-                col = int(input(f"Joueur {joueur}, entrez la colonne (0, 1, 2) : "))
+                ligne = int(input(f"Player {joueur}, enter the line number (0, 1, 2) : "))
+                col = int(input(f"Player {joueur}, enter the row number (0, 1, 2) : "))
                 if plateau[ligne][col] == " ":
                     plateau[ligne][col] = joueur
                     break
                 else:
-                    print("Cette case est déjà prise. Essayez à nouveau.")
+                    print("This case is already taken, please try again")
             except (ValueError, IndexError):
-                print("Entrée non valide. Veuillez entrer des valeurs entre 0 et 2.")
+                print("Entry is not valid, please choose between 0,1,2")
 
         if verifier_victoire(plateau, joueur):
             afficher_plateau(plateau)
-            print(f"Félicitations ! Le joueur {joueur} a gagné !")
+            print(f"CONGRATULATIONS ! Player {joueur} win!")
             return
 
         tour += 1
 
     afficher_plateau(plateau)
-    print("C'est un match nul !")
+    print("No One wins, Its a draw !")
 
 if __name__ == "__main__":
     partie_tic_tac_toe()
